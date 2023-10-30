@@ -1,13 +1,13 @@
 const express = require("express");
+const { apiKey, permission } = require("../auth/checkAuth");
 
 const router = express.Router();
 
-// router.get("", (req, res, next) => {
-//     return res.status(200).json({
-//         msg: "Welcom to Nodejs",
-//     });
-// });
-
+//check apiKey
+router.use(apiKey);
+//check permission
+router.use(permission("0000"));
+// folder access dùng để quản lý các file liên quan với truy cập(signUp,SignIn)
 router.use("/v1/api", require("./access"));
 // router.use("/v1/api", require("./shop"));
 

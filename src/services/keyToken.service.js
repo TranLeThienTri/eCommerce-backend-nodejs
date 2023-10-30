@@ -1,5 +1,7 @@
 "use strict";
 
+//! File này dùng để Lưu token vào trong db, sau này chắc dùng để refreshToken
+
 const keyTokenModel = require("../models/keyToken.model");
 
 class KeyTokenService {
@@ -10,6 +12,7 @@ class KeyTokenService {
                 publicKey,
                 privateKey,
             });
+            // nếu tạo thành công thì trả về public key  <=> null
             return tokens ? tokens.publicKey : null;
         } catch (error) {
             return error;

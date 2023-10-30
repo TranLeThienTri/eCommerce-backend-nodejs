@@ -2,9 +2,10 @@
 @url_dev = http://localhost:8080/v1/api
 POST {{url_dev}}/shop/signup
 Content-Type: application/json
+x-api-key: 7ef256903ecb4d33d28c87916340f027f534493c474b6b1fb0c1243130786b3b69c43870754b1b318f16429d49be52455c3cdfb14cb673c78bbf09fde21c0e41
 
 {
     "name": "Shop tip js",
-    "email": "shop@example01.com",
+    "email": "shop@example05.com",
     "password": "1234abc"
 }

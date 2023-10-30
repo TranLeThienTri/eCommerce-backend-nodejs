@@ -6,6 +6,7 @@ const crypto = require("node:crypto");
 const KeyTokenService = require("./keyToken.service");
 const { createTokensPair } = require("../auth/authUtils");
 const { getInfoData } = require("../utils");
+//? Role của shop
 const RoleShop = {
     SHOP: "SHOP",
     ADMIN: "ADMIN",
