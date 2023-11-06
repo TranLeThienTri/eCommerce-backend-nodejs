@@ -2,10 +2,31 @@
 @url_dev = http://localhost:8080/v1/api
 POST {{url_dev}}/shop/signup
 Content-Type: application/json
-x-api-key: 7ef256903ecb4d33d28c87916340f027f534493c474b6b1fb0c1243130786b3b69c43870754b1b318f16429d49be52455c3cdfb14cb673c78bbf09fde21c0e41
+x-api-key: d3e004aa8a4f5f2f2f0df447c397ba8024c27407563ca7809e50520f01f670b7206d42b17b6b01afc124a0f3d1d93fc9e033df72f67aba2f89da961104cb06de
 
 {
     "name": "Shop tip js",
-    "email": "shop@example05.com",
+    "email": "shop7@example06.com",
     "password": "1234abc"
 }
+
+### LOGIN
+@url_dev = http://localhost:8080/v1/api
+POST {{url_dev}}/shop/login
+Content-Type: application/json
+x-api-key: d3e004aa8a4f5f2f2f0df447c397ba8024c27407563ca7809e50520f01f670b7206d42b17b6b01afc124a0f3d1d93fc9e033df72f67aba2f89da961104cb06de
+
+{
+    "email": "shop7@example06.com",
+    "password": "1234abc"
+}
+
+
+
+### LOGOUT
+@url_dev = http://localhost:8080/v1/api
+POST {{url_dev}}/shop/logout
+Content-Type: application/json
+x-api-key: d3e004aa8a4f5f2f2f0df447c397ba8024c27407563ca7809e50520f01f670b7206d42b17b6b01afc124a0f3d1d93fc9e033df72f67aba2f89da961104cb06de
+x-client-id: 6548c3c38a7ab8ed4f879ae2
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTQ4YzNjMzhhN2FiOGVkNGY4NzlhZTIiLCJlbWFpbCI6InNob3A3QGV4YW1wbGUwNi5jb20iLCJpYXQiOjE2OTkyNzk4NTYsImV4cCI6MTY5OTQ1MjY1Nn0.5yBYyT-p7jPrE6p5mjEleUzUVuHDKvOXf-SvVSC_XDg

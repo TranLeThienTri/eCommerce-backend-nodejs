@@ -1,5 +1,5 @@
 "use strict";
-// thường thì lodash sẽ kí hiệu bằng _
+//lodash thường thì lodash sẽ kí hiệu bằng _
 const _ = require("lodash");
 // đưa các trường cần lấy ra trong object
 const getInfoData = ({ fileds = [], object = {} }) => {

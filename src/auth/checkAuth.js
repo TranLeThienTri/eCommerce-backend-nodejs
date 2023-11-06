@@ -13,7 +13,7 @@ const apiKey = async (req, res, next) => {
         // check có x-api-key trong khi post lên không
         if (!key) {
             return res.status(403).json({
-                message: "Forbidden error",
+                message: "Forbidden not HAEDER error",
             });
         }
 
