@@ -7,8 +7,9 @@ const router = express.Router();
 router.use(apiKey);
 //check permission
 router.use(permission("0000"));
+// router.use("/v1/api", require("./product"));
+router.use("/v1/api/product", require("./product"));
 // folder access dùng để quản lý các file liên quan với truy cập(signUp,SignIn)
 router.use("/v1/api", require("./access"));
-// router.use("/v1/api", require("./shop"));
 
 module.exports = router;

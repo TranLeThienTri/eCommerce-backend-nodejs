@@ -4,13 +4,19 @@ const HEADER = {
     API_KEY: "x-api-key",
     CLIENT_ID: "x-client-id",
     AUTHORIZATION: "authorization",
+    REFRESHTOKEN: "x-rftokens-id",
 };
 
 //! File này sử dụng để có tạo ra cặp tokens
 
 const JWT = require("jsonwebtoken");
-const { AuthFailError, NotFoundError } = require("../core/error.response");
+const {
+    AuthFailError,
+    NotFoundError,
+    ForbiddenError,
+} = require("../core/error.response");
 const { findByUserId } = require("../services/keyToken.service");
+const { asyncHandle } = require("../helpers/asyncHandler");
 // private key dùng để đăng kí còn public key dùng để xác thực.
 const createTokensPair = async (payload, publicKey, privateKey) => {
     try {
@@ -40,7 +46,7 @@ const createTokensPair = async (payload, publicKey, privateKey) => {
     }
 };
 
-const authorization = async (req, res, next) => {
+const authorization = asyncHandle(async (req, res, next) => {
     /*
     1 - check userID missing
     2 - get accessToken 
@@ -55,6 +61,22 @@ const authorization = async (req, res, next) => {
     const keyStore = await findByUserId(userId);
     if (!keyStore) throw new NotFoundError("not found key in dbs");
 
+    //3
+    if (req.headers[HEADER.REFRESHTOKEN]) {
+        try {
+            const refreshToken = req.headers[HEADER.REFRESHTOKEN];
+            const decodeUser = JWT.verify(refreshToken, keyStore.privateKey);
+            if (userId !== decodeUser.userId)
+                throw new AuthFailError("Invalid UserId");
+            req.keyStore = keyStore;
+            req.user = decodeUser;
+            req.refreshToken = refreshToken;
+            return next();
+        } catch (error) {
+            throw error;
+        }
+    }
+
     const accessToken = req.headers[HEADER.AUTHORIZATION];
     if (!accessToken) throw new AuthFailError("Invalid request");
 
@@ -63,10 +85,15 @@ const authorization = async (req, res, next) => {
         if (userId !== decodeUser.userId)
             throw new AuthFailError("Invalid User");
         req.keyStore = keyStore;
+        req.user = decodeUser;
         return next();
     } catch (error) {
         throw error;
     }
+});
+
+const verifyJWT = async (token, keySecret) => {
+    return await JWT.verify(token, keySecret);
 };
 
-module.exports = { createTokensPair, authorization };
+module.exports = { createTokensPair, authorization, verifyJWT };

@@ -30,3 +30,39 @@ Content-Type: application/json
 x-api-key: d3e004aa8a4f5f2f2f0df447c397ba8024c27407563ca7809e50520f01f670b7206d42b17b6b01afc124a0f3d1d93fc9e033df72f67aba2f89da961104cb06de
 x-client-id: 6548c3c38a7ab8ed4f879ae2
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTQ4YzNjMzhhN2FiOGVkNGY4NzlhZTIiLCJlbWFpbCI6InNob3A3QGV4YW1wbGUwNi5jb20iLCJpYXQiOjE2OTkyNzk4NTYsImV4cCI6MTY5OTQ1MjY1Nn0.5yBYyT-p7jPrE6p5mjEleUzUVuHDKvOXf-SvVSC_XDg
+
+###handler RefreshToken
+POST {{url_dev}}/shop/handlerRefreshToken
+Content-Type: application/json
+x-api-key: d3e004aa8a4f5f2f2f0df447c397ba8024c27407563ca7809e50520f01f670b7206d42b17b6b01afc124a0f3d1d93fc9e033df72f67aba2f89da961104cb06de
+x-client-id: 6548c3c38a7ab8ed4f879ae2
+x-rftokens-id: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTQ4YzNjMzhhN2FiOGVkNGY4NzlhZTIiLCJlbWFpbCI6InNob3A3QGV4YW1wbGUwNi5jb20iLCJpYXQiOjE2OTk1NDk3OTYsImV4cCI6MTcwMDE1NDU5Nn0.6T9netsLC-fnptratazG4qjlXB_oMhHxGKFnCKnHad8
+
+###
+POST {{url_dev}}/product
+Content-Type: application/json
+x-api-key: d3e004aa8a4f5f2f2f0df447c397ba8024c27407563ca7809e50520f01f670b7206d42b17b6b01afc124a0f3d1d93fc9e033df72f67aba2f89da961104cb06de
+x-client-id: 6548c3c38a7ab8ed4f879ae2
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTQ4YzNjMzhhN2FiOGVkNGY4NzlhZTIiLCJlbWFpbCI6InNob3A3QGV4YW1wbGUwNi5jb20iLCJpYXQiOjE3MDA1Mzg2ODIsImV4cCI6MTcwMDcxMTQ4Mn0.S6KbbTp1cU1rejNVOIXDaQFAcQuG4aTADJi7tgc4PrU
+
+{
+    "product_name" : "Furniture 15",
+    "product_description" : "512GB titan",
+    "product_price" : 500,
+    "product_type" : "Furniture",
+    "product_thumb" : "product_thumb",
+    "product_quantity" : 5,
+    "product_attributes" :{
+        "brand": "Apple",
+        "size": "XXL",
+        "material": "black"
+    }
+}
+
+
+###
+POST {{url_dev}}/product/publish/655c5c74f613cfc1a65bff6b
+Content-Type: application/json
+x-api-key: d3e004aa8a4f5f2f2f0df447c397ba8024c27407563ca7809e50520f01f670b7206d42b17b6b01afc124a0f3d1d93fc9e033df72f67aba2f89da961104cb06de
+x-client-id: 6548c3c38a7ab8ed4f879ae2
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTQ4YzNjMzhhN2FiOGVkNGY4NzlhZTIiLCJlbWFpbCI6InNob3A3QGV4YW1wbGUwNi5jb20iLCJpYXQiOjE3MDA1NDg2ODEsImV4cCI6MTcwMDcyMTQ4MX0.euHUe-AEL1IY2OZ7ftL7TM9Khxc4MttT3bB5AriwpVM

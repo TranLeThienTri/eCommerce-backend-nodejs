@@ -2,7 +2,7 @@
 const { model, Schema, Types } = require("mongoose"); // Erase if already required
 
 // set tên của document và collection
-const DOCUMENT_NAME = "shop";
+const DOCUMENT_NAME = "Shop";
 const COLLECTION_NAME = "Shops";
 
 //! sử dụng từ khoá !dmbg để có thể generate nhanh một cái schema

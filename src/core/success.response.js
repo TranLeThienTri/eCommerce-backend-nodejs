@@ -1,16 +1,6 @@
 "use strict";
 const { StatusCodes, ReasonPhrases } = require("../utils/httpStatusCode");
 
-// const StatusCode = {
-//     OK: 200,
-//     CREATE: 201,
-// };
-
-// const ReasonStatusCode = {
-//     OK: "OK",
-//     CREATE: "CREATE",
-// };
-
 class SuccessResponse {
     constructor({
         message,
