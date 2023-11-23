@@ -5,7 +5,7 @@ const {
     electronic,
     furniture,
     product,
-} = require("../../models/product.model");
+} = require("../product.model");
 const { getSelectData, unGetSelectData } = require("../../utils");
 const findAllDraftsForShop = async ({ query, limit, skip }) => {
     return queryProduct({ query, limit, skip });
