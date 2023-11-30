@@ -3,7 +3,7 @@ const { model, Schema, Types } = require("mongoose"); // Erase if already requir
 
 // set tên của document và collection
 const DOCUMENT_NAME = "Discount";
-const COLLECTION_NAME = "discounts";
+const COLLECTION_NAME = "Discounts";
 
 //! sử dụng từ khoá !dmbg để có thể generate nhanh một cái schema
 //? sau khi được generate thì sửa lại tên mong muốn là có thể sử dụng
@@ -12,8 +12,8 @@ var discountSchema = new Schema(
     {
         discount_name: { type: String, required: true }, // tên discount
         discount_description: { type: String, required: true }, // mô tả của discount
-        discount_type: { type: String, default: "fixed_amount" }, // loại discount('giảm giá tiền mặt'), có một loại nữa là percentage("%")
-        discount_value: { type: number, required: true }, // 10.000VND or 10%
+        discount_type: { type: String, default: "fixed_amount" }, // loại fixed_amount('giảm giá tiền mặt'), có một loại nữa là percentage("%")
+        discount_value: { type: Number, required: true }, // 10.000VND or 10%
         discount_code: { type: String, required: true }, // mã discount
         discount_start_date: { type: Date, required: true }, // ngày bắt đầu áp dụng discount
         discount_end_date: { type: Date, required: true }, // ngày kết thúc chương trình discount
@@ -42,6 +42,4 @@ var discountSchema = new Schema(
 
 //Export the model
 // set cho db
-module.exports = {
-    discount: model(DOCUMENT_NAME, discountSchema),
-};
+module.exports = model(DOCUMENT_NAME, discountSchema);

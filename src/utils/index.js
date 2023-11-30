@@ -1,11 +1,14 @@
 "use strict";
 //lodash thường thì lodash sẽ kí hiệu bằng _
 const _ = require("lodash");
+const { Types } = require("mongoose");
 // đưa các trường cần lấy ra trong object
 const getInfoData = ({ fileds = [], object = {} }) => {
     return _.pick(object, fileds);
 };
 
+// convert to obj
+const convertToObjectIdMongoDB = (id) => new Types.ObjectId(id);
 const getSelectData = (select = []) => {
     return Object.fromEntries(select.map((el) => [el, 1]));
 };
@@ -43,4 +46,6 @@ module.exports = {
     unGetSelectData,
     removeUndefinedObject,
     updateNestedObjectParser,
+
+    convertToObjectIdMongoDB,
 };
