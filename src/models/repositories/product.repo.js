@@ -6,7 +6,11 @@ const {
     furniture,
     product,
 } = require("../product.model");
-const { getSelectData, unGetSelectData } = require("../../utils");
+const {
+    getSelectData,
+    unGetSelectData,
+    convertToObjectIdMongoDB,
+} = require("../../utils");
 const findAllDraftsForShop = async ({ query, limit, skip }) => {
     return queryProduct({ query, limit, skip });
 };
@@ -93,6 +97,12 @@ const updateProductById = async ({
     });
 };
 
+const getProductById = async (productId) => {
+    return await product
+        .findOne({ _id: convertToObjectIdMongoDB(productId) })
+        .lean();
+};
+
 module.exports = {
     findAllDraftsForShop,
     findAllPublishForShop,
@@ -102,4 +112,5 @@ module.exports = {
     findAllProducts,
     findProduct,
     updateProductById,
+    getProductById,
 };
